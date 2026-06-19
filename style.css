@@ -1,0 +1,40 @@
+body { margin: 0; overflow: hidden; background-color: #FF00FF; transition: background-color 0.2s; }
+
+/* Navegación */
+.nav-header { position: fixed; top: 20px; width: 100%; display: flex; align-items: flex-start; padding: 0 40px; box-sizing: border-box; z-index: 1000; }
+.logo-grande { width: 300px; transition: transform 0.3s ease; cursor: pointer; }
+.logo-grande:hover { transform: scale(1.1); }
+
+.categorias-centro { display: flex; gap: 40px; position: absolute; left: 50%; transform: translateX(-50%); }
+.cat { display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: default; }
+.circulo { width: 70px; height: 70px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: transform 0.3s; border: 2px solid black; }
+.circulo:hover { transform: scale(1.15); }
+.circulo img { width: 35px; }
+.cat span { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; color: black; }
+
+/* Central */
+.contenedor-centro { display: flex; justify-content: center; align-items: center; height: 100vh; position: fixed; width: 100vw; z-index: 1; pointer-events: none; }
+#pregunta-central { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; font-size: 6rem; color: black; }
+.l1, .l23 { font-family: 'Anton'; }
+.l2, .l6, .l10 { font-family: 'Playfair Display'; font-style: italic; }
+.l3, .l7, .l11, .l18 { font-family: 'Bebas Neue'; }
+.l4, .l8, .l12, .l16, .l20 { font-family: 'Inter'; }
+.l5, .l9, .l13, .l17, .l21 { font-family: 'Courier Prime'; }
+.l14, .l19, .l22 { font-family: 'Lobster'; }
+
+/* Elementos */
+#lienzo { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 50; cursor: none; }
+#escenario { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 500; pointer-events: none; }
+#cursor-objeto { position: fixed; width: 200px; height: 200px; background-size: contain; background-repeat: no-repeat; pointer-events: none; z-index: 200; }
+
+.globo-conservador {
+    position: absolute; width: 280px; height: 280px;
+    background-image: url('assets/hombrecito.png'); background-size: contain;
+    background-repeat: no-repeat; background-position: center;
+    cursor: grab; pointer-events: auto; display: flex; align-items: center; justify-content: center;
+}
+.globo-conservador span {
+    position: absolute; top: 50%; left: 50%; transform: translate(-30%, -20%);
+    width: 120px; color: white; font-family: 'Montserrat'; font-weight: 900; font-size: 0.9rem;
+    text-align: center; pointer-events: none; text-transform: lowercase;
+}

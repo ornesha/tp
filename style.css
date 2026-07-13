@@ -1,20 +1,24 @@
-body { margin: 0; overflow: hidden; background-color: #FF00FF; transition: background-color 0.2s; }
+body { margin: 0; background-color: white; }
 
-/* Navegación */
-.nav-header { position: fixed; top: 20px; width: 100%; display: flex; align-items: flex-start; padding: 0 40px; box-sizing: border-box; z-index: 1000; }
-.logo-grande { width: 300px; transition: transform 0.3s ease; cursor: pointer; }
-.logo-grande:hover { transform: scale(1.1); }
+.pantalla-inicial { 
+    height: 100vh; width: 100vw; background-color: #FF00FF; 
+    transition: background-color 0.2s; position: relative; overflow: hidden; 
+}
 
-.categorias-centro { display: flex; gap: 40px; position: absolute; left: 50%; transform: translateX(-50%); }
+.nav-header { position: fixed; top: 20px; width: 100%; display: flex; align-items: flex-start; padding: 0 40px; box-sizing: border-box; z-index: 2000; }
+.logo-grande { width: 150px; transition: transform 0.3s ease; cursor: pointer; }
+.logo-grande:hover { transform: scale(1.5); }
+
+.categorias-centro { display: flex; gap: 40px; position: absolute; left: 85%; transform: translateX(-50%); }
 .cat { display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: default; }
-.circulo { width: 70px; height: 70px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: transform 0.3s; border: 2px solid black; }
-.circulo:hover { transform: scale(1.15); }
-.circulo img { width: 35px; }
+.circulo { width: 50px; height: 50px; background: rgb(0, 0, 0); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: transform 0.3s; border: 2px solid black; }
+.circulo:hover { transform: scale(1.35); background: rgb(255, 255, 255); }
+.circulo img { width: 60px; }
+.circulo img[src*="vestido.png"] { width: 30px; }
 .cat span { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; color: black; }
 
-/* Central */
-.contenedor-centro { display: flex; justify-content: center; align-items: center; height: 100vh; position: fixed; width: 100vw; z-index: 1; pointer-events: none; }
-#pregunta-central { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; font-size: 6rem; color: black; }
+.contenedor-centro { display: flex; justify-content: center; align-items: center; height: 100vh; position: absolute; width: 100vw; z-index: 1; pointer-events: none; }
+#pregunta-central { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; font-size: 6rem; color: black; pointer-events: auto; }
 .l1, .l23 { font-family: 'Anton'; }
 .l2, .l6, .l10 { font-family: 'Playfair Display'; font-style: italic; }
 .l3, .l7, .l11, .l18 { font-family: 'Bebas Neue'; }
@@ -22,19 +26,113 @@ body { margin: 0; overflow: hidden; background-color: #FF00FF; transition: backg
 .l5, .l9, .l13, .l17, .l21 { font-family: 'Courier Prime'; }
 .l14, .l19, .l22 { font-family: 'Lobster'; }
 
-/* Elementos */
-#lienzo { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 50; cursor: none; }
-#escenario { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 500; pointer-events: none; }
-#cursor-objeto { position: fixed; width: 200px; height: 200px; background-size: contain; background-repeat: no-repeat; pointer-events: none; z-index: 200; }
+#lienzo { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 50; cursor: none; }
+#escenario { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 500; pointer-events: none; }
 
 .globo-conservador {
-    position: absolute; width: 280px; height: 280px;
-    background-image: url('assets/hombrecito.png'); background-size: contain;
-    background-repeat: no-repeat; background-position: center;
+    position: absolute; width: 280px; height: 280px; background-image: url('assets/hombrecito.png');
+    background-size: contain; background-repeat: no-repeat; background-position: center;
     cursor: grab; pointer-events: auto; display: flex; align-items: center; justify-content: center;
 }
 .globo-conservador span {
-    position: absolute; top: 50%; left: 50%; transform: translate(-30%, -20%);
-    width: 120px; color: white; font-family: 'Montserrat'; font-weight: 900; font-size: 0.9rem;
-    text-align: center; pointer-events: none; text-transform: lowercase;
+    position: absolute; 
+    top: 41.5%; 
+    left: 60%; 
+    transform: translate(-30%, -20%) rotate(-14.5deg); /* Aquí recuperamos el centro y la rotación fija */
+    width: 120px; 
+    color: white; 
+    font-family: 'Montserrat'; 
+    font-weight: 900; 
+    font-size: 0.9rem;
+    text-align: center; 
+    pointer-events: none; 
+    text-transform: lowercase;
+}
+
+
+.seccion-scroll { 
+    background-color: white; 
+    padding: 100px 0; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+
+.titulo-seccion {
+    min-height: 100vh; /* Cada título ocupa una pantalla */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo-seccion h1 {
+    display: flex;
+    font-size: 5rem; /* Tamaño menor que el central */
+    color: black;
+    margin: 0;
+}
+
+/* Reutilizamos las fuentes que ya tenías */
+.titulo-seccion .l1 { font-family: 'Anton'; }
+.titulo-seccion .l2 { font-family: 'Playfair Display'; font-style: italic; }
+.titulo-seccion .l3 { font-family: 'Bebas Neue'; }
+.titulo-seccion .l4 { font-family: 'Inter'; }
+.titulo-seccion .l5 { font-family: 'Courier Prime'; }
+.titulo-seccion .l6 { font-family: 'Lobster'; }
+.titulo-seccion .l7 { font-family: 'Anton'; }
+.titulo-seccion .l8 { font-family: 'Inter'; }
+
+/* --- ESTILOS PARA LA GALERÍA DE OBJETOS (GRILLA) --- */
+
+.galeria-objetos {
+    display: grid;
+    /* Crea columnas automáticas que se adaptan al tamaño de la pantalla */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 80px 40px; /* Espacio vertical y horizontal entre objetos */
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 40px 100px 40px;
+    margin: 0 auto; /* Centra la grilla en la página */
+}
+
+.item-objeto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.item-objeto img {
+    width: 100%;
+    max-width: 200px; /* Tamaño de imagen MUCHO más pequeño para evitar pixelado */
+    height: 250px; /* Forzamos una altura máxima uniforme */
+    object-fit: contain; /* Evita que la imagen se deforme */
+    margin-bottom: 20px;
+    filter: drop-shadow(0px 8px 12px rgba(0,0,0,0.08));
+}
+
+.nombre-objeto {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 2.2rem; /* Texto más pequeño para encajar en la grilla */
+    color: black;
+    margin: 0 0 15px 0;
+}
+
+/* Tipografías caprichosas para los nombres de la grilla */
+.nombre-objeto .l1 { font-family: 'Anton'; }
+.nombre-objeto .l2 { font-family: 'Playfair Display'; font-style: italic; }
+.nombre-objeto .l3 { font-family: 'Bebas Neue'; }
+.nombre-objeto .l4 { font-family: 'Inter'; font-weight: 700; }
+.nombre-objeto .l5 { font-family: 'Courier Prime'; }
+.nombre-objeto .l6 { font-family: 'Lobster'; }
+
+.descripcion-inter {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 1rem; /* Texto descriptivo reducido y proporcionado */
+    line-height: 1.5;
+    color: #333;
+    margin: 0;
 }

@@ -7,29 +7,112 @@
     <title>¡Caprichismo!</title>
 </head>
 <body>
+
     <header class="nav-header">
-        <img src="assets/caprichismo.png" class="logo-grande" id="logo-caprichismo">
+        <img src="assets/iso.png" class="logo-grande" id="logo-iso">
+    
+        
         <nav class="categorias-centro">
-            <div class="cat"><div class="circulo"><img src="assets/radio.png"></div><span>contacto</span></div>
-            <div class="cat"><div class="circulo"><img src="assets/circus.png"></div><span>evento</span></div>
-            <div class="cat"><div class="circulo"><img src="assets/silla.png"></div><span>objetos</span></div>
-            <div class="cat"><div class="circulo"><img src="assets/vestido.png"></div><span>creative</span></div>
-        </nav>
+    <div class="cat" onclick="document.getElementById('objetos').scrollIntoView({behavior: 'smooth'})">
+        <div class="circulo"><img src="assets/radio.png"></div><span>objetos</span>
+    </div>
+    <div class="cat" onclick="document.getElementById('evento').scrollIntoView({behavior: 'smooth'})">
+        <div class="circulo"><img src="assets/circus.png"></div><span>evento</span>
+    </div>
+      <div class="cat" onclick="document.getElementById('contacto').scrollIntoView({behavior: 'smooth'})">
+        <div class="circulo"><img src="assets/silla.png"></div><span>contacto</span>
+    </div>
+      <div class="cat" onclick="document.getElementById('lienzo').scrollIntoView({behavior: 'smooth'})">
+        <div class="circulo"><img src="assets/vestido.png"></div><span>lienzo</span>
+    </div>
+    </nav>
+
     </header>
 
-    <div class="contenedor-centro">
-        <h1 id="pregunta-central">
-            <span class="l1">¿</span><span class="l2">q</span><span class="l3">u</span><span class="l4">é</span>
-            <span class="l5">s</span><span class="l6">e</span><span class="l7">n</span><span class="l8">t</span><span class="l9">í</span><span class="l10">s</span>
-            <span class="l11">g</span><span class="l12">a</span><span class="l13">n</span><span class="l14">a</span><span class="l15">s</span>
-            <span class="l16">d</span><span class="l17">e</span>
-            <span class="l18">h</span><span class="l19">a</span><span class="l20">c</span><span class="l21">e</span><span class="l22">r</span><span class="l23">?</span>
+    <div class="pantalla-inicial">
+        <div class="contenedor-centro">
+            <h1 id="pregunta-central">
+                <span class="l1">¿</span><span class="l2">q</span><span class="l3">u</span><span class="l4">é</span>&nbsp;
+                <span class="l5">s</span><span class="l6">e</span><span class="l7">n</span><span class="l8">t</span><span class="l9">í</span><span class="l10">s</span>&nbsp;
+                <span class="l11">g</span><span class="l12">a</span><span class="l13">n</span><span class="l14">a</span><span class="l15">s</span>&nbsp;
+                <span class="l16">d</span><span class="l17">e</span>&nbsp;
+                <span class="l18">h</span><span class="l19">a</span><span class="l20">c</span><span class="l21">e</span><span class="l22">r</span><span class="l23">?</span>
+            </h1>
+        </div>
+        <canvas id="lienzo"></canvas>
+        <div id="escenario"></div> 
+    </div>
+
+   <div class="seccion-scroll">
+    <div class="titulo-seccion" id="objetos">
+        <h1>
+            <span class="l1">o</span><span class="l2">b</span><span class="l3">j</span><span class="l4">e</span><span class="l5">t</span><span class="l6">o</span><span class="l7">s</span>
         </h1>
     </div>
-    
-    <canvas id="lienzo"></canvas>
-    <div id="escenario"></div> 
-    
+
+    <div class="galeria-objetos">
+        <div class="item-objeto">
+            <img src="assets/barferroprusiato.png" alt="Bar Ferroprusiato">
+            <h2 class="nombre-objeto">
+                <span class="l1">B</span><span class="l2">a</span><span class="l3">r</span>&nbsp;
+                <span class="l4">F</span><span class="l5">e</span><span class="l6">r</span><span class="l1">r</span><span class="l2">o</span><span class="l3">p</span><span class="l4">r</span><span class="l5">u</span><span class="l6">s</span><span class="l1">i</span><span class="l2">a</span><span class="l3">t</span><span class="l4">o</span>
+            </h2>
+            <p class="descripcion-inter">Minibar de 1982. Énfasis en el juego de geometrías y la combinación de materiales. Es caprichista porque no busca solo resolver una función utilitaria, sino convertir un minibar en un objeto expresivo, lúdico y visualmente provocador, dándole una silueta casi animal.</p>
+        </div>
+
+        <div class="item-objeto">
+            <img src="assets/ceniceros.png" alt="Ceniceros">
+            <h2 class="nombre-objeto">
+                <span class="l1">C</span><span class="l2">e</span><span class="l3">n</span><span class="l4">i</span><span class="l5">c</span><span class="l6">e</span><span class="l1">r</span><span class="l2">o</span><span class="l3">s</span>
+            </h2>
+            <p class="descripcion-inter">Objeto de cerámica de 1968 transformado en pieza escultórica inspirada en flores. Es caprichista porque rompe los límites entre lo artístico y lo funcional, convirtiendo objetos de uso diario en obras expresivas, lúdicas y pop, priorizando el color y la forma.</p>
+        </div>
+
+        <div class="item-objeto">
+            <img src="assets/obelisco.png" alt="Salero obelisco">
+            <h2 class="nombre-objeto">
+                <span class="l1">S</span><span class="l2">a</span><span class="l3">l</span><span class="l4">e</span><span class="l5">r</span><span class="l6">o</span>&nbsp;
+                <span class="l1">o</span><span class="l2">b</span><span class="l3">e</span><span class="l4">l</span><span class="l5">i</span><span class="l6">s</span><span class="l1">c</span><span class="l2">o</span>
+            </h2>
+            <p class="descripcion-inter">Pieza de cerámica de 1968. Es caprichista porque toma un icono urbano monumental porteño y lo reduce a un objeto doméstico, jugando con la contradicción, el humor y cuestionando los límites entre arte, consumo y vida cotidiana.</p>
+        </div>
+        
+        <div class="item-objeto">
+            <img src="assets/oreja.png" alt="Accesorio para Oreja">
+            <h2 class="nombre-objeto">
+                <span class="l1">A</span><span class="l2">c</span><span class="l3">c</span><span class="l4">e</span><span class="l5">s</span><span class="l6">o</span><span class="l1">r</span><span class="l2">i</span><span class="l3">o</span>&nbsp;
+                <span class="l4">o</span><span class="l5">r</span><span class="l6">e</span><span class="l1">j</span><span class="l2">a</span>
+            </h2>
+            <p class="descripcion-inter">Objeto de 1966 concebido como oro fundido. Es caprichista porque no es joyería funcional, sino una ficción creada para circular en los medios de moda como crítica al consumismo y al fetichismo, desafiando por completo la utilidad del diseño.</p>
+        </div>
+
+        <div class="item-objeto">
+            <img src="assets/radio.png" alt="Radio in a Bag">
+            <h2 class="nombre-objeto">
+                <span class="l1">R</span><span class="l2">a</span><span class="l3">d</span><span class="l4">i</span><span class="l5">o</span>&nbsp;
+                <span class="l6">i</span><span class="l1">n</span>&nbsp;
+                <span class="l2">b</span><span class="l3">a</span><span class="l4">g</span>
+            </h2>
+            <p class="descripcion-inter">Proyecto conceptual de 1981. Es caprichista porque deconstruye un electrodoméstico masivo, exhibiendo sus componentes electrónicos en una funda de PVC transparente y blanda, cuestionando deliberadamente la estética de diseño industrial tradicional.</p>
+        </div>
+        
+        <div class="item-objeto">
+            <img src="assets/vestido.png" alt="Vestido Margaritas">
+            <h2 class="nombre-objeto">
+                <span class="l1">V</span><span class="l2">e</span><span class="l3">s</span><span class="l4">t</span><span class="l5">i</span><span class="l6">d</span><span class="l1">o</span>&nbsp;
+                <span class="l2">f</span><span class="l3">l</span><span class="l4">o</span><span class="l5">r</span><span class="l6">a</span><span class="l1">l</span>
+            </h2>
+            <p class="descripcion-inter">Pieza de vestuario de 1991. Es caprichista por su lenguaje expresivo, lúdico y alternativo, utilizando la "pobreza chic" mediante la reutilización de flores, materiales desechados y telas económicas para cuestionar la alta costura en performances underground.</p>
+        </div>
+    </div>
+    <div class="titulo-seccion" id="evento">
+        <h1><span class="l1">e</span><span class="l2">v</span><span class="l3">e</span><span class="l4">n</span><span class="l5">t</span><span class="l6">o</span></h1>
+    </div>
+    <div class="titulo-seccion" id="contacto">
+        <h1><span class="l1">c</span><span class="l2">o</span><span class="l3">n</span><span class="l4">t</span><span class="l5">a</span><span class="l6">c</span><span class="l7">t</span><span class="l8">o</span></h1>
+    </div>
+</div>
+
     <script src="app.js"></script>
 </body>
 </html>

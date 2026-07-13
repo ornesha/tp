@@ -156,7 +156,7 @@ body { margin: 0; background-color: white; }
     background-size: 100% auto;
     
     /* PADDING: Da espacio adentro para que los últimos objetos no pisen la raya */
-    padding-bottom: 50px; 
+    padding-bottom: 50px;
     
     /* MARGIN: Crea una barrera invisible por fuera para empujar "evento" bien abajo */
     margin-bottom: 0px; 

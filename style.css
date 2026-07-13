@@ -50,24 +50,32 @@ body { margin: 0; background-color: white; }
 }
 
 
+/* --- SCROLL Y TÍTULOS DE SECCIÓN --- */
 .seccion-scroll { 
-    background-color: white; 
-    padding: 100px 0; 
+    background-color: white; /* Color base por si la imagen tarda en cargar */
+    background-image: url('assets/raya.png'); /* Ruta a tu imagen */
+    background-size: cover; /* Hace que la imagen se estire para cubrir todo el fondo */
+    background-position: center; /* Mantiene la imagen centrada */
+    background-repeat: no-repeat; /* Evita que se repita como un mosaico */
+    
+    /* Estos son los estilos que ya tenías: */
+    padding: 20px 0; 
     display: flex; 
     flex-direction: column; 
     align-items: center; 
 }
-
 .titulo-seccion {
-    min-height: 100vh; /* Cada título ocupa una pantalla */
+    min-height: auto; /* Quitamos la pantalla completa (100vh) */
+    padding: 60px 0 40px 0; /* Espacio controlado: 60px arriba, 40px abajo */
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .titulo-seccion h1 {
     display: flex;
-    font-size: 5rem; /* Tamaño menor que el central */
+    font-size: 5rem; 
     color: black;
     margin: 0;
 }
@@ -115,7 +123,9 @@ body { margin: 0; background-color: white; }
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    font-size: 2.2rem; /* Texto más pequeño para encajar en la grilla */
+    align-items: baseline; /* Alinea todas las letras por su base inferior */
+    gap: 4px; /* Ajusta este número para darle más o menos "kerning" a las letras */
+    font-size: 2.2rem;
     color: black;
     margin: 0 0 15px 0;
 }
@@ -135,4 +145,19 @@ body { margin: 0; background-color: white; }
     line-height: 1.5;
     color: #333;
     margin: 0;
+}
+
+.bloque-objetos {
+    width: 100%;
+    position: relative;
+    background-image: url('assets/raya.png');
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    
+    /* PADDING: Da espacio adentro para que los últimos objetos no pisen la raya */
+    padding-bottom: 50px; 
+    
+    /* MARGIN: Crea una barrera invisible por fuera para empujar "evento" bien abajo */
+    margin-bottom: 0px; 
 }

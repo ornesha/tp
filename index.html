@@ -9,7 +9,7 @@
 <body>
 
     <header class="nav-header">
-        <img src="assets/iso.png" class="logo-grande" id="logo-iso">
+        <img src="assets/iso.png" class="logo-grande" id="logo-iso" onclick="document.getElementById('contacto').scrollIntoView({behavior: 'smooth'})" style="cursor: pointer;">
     
         
         <nav class="categorias-centro">
@@ -190,14 +190,119 @@
         </div>
 
        
-    <div class="titulo-seccion" id="evento">
-        <h1><span class="l1">e</span><span class="l2">v</span><span class="l3">e</span><span class="l4">n</span><span class="l5">t</span><span class="l6">o</span></h1>
+
+  <div class="bloque-evento">
+        
+        <div class="titulo-seccion" id="evento">
+            <h1>
+                <span class="l1">e</span><span class="l2">v</span><span class="l3">e</span><span class="l4">n</span><span class="l5">t</span><span class="l6">o</span>
+            </h1>
+        </div>
+
+        <p class="descripcion-evento">
+            Una intervención espacial y lúdica en el corazón de la ciudad. Este evento caprichista toma el Obelisco porteño como epicentro para desplegar instalaciones a gran escala de nuestros objetos icónicos. Un recorrido inmersivo donde el diseño sale a la calle para provocar, interactuar y transformar el paisaje urbano en un manifiesto visual.
+        </p>
+
+        <div class="evento-principal">
+            <img src="assets/evento.png" alt="Afiche Principal Evento">
+        </div>
+
+       <div class="galeria-evento-grilla">
+            <div class="item-evento">
+                <div class="contenedor-img">
+                    <img src="assets/espacial1.png" alt="Obelisco Intervenido">
+                </div>
+                <p class="descripcion-inter">El icónico Obelisco intervenido con texturas y colores vibrantes, marcando el epicentro del caprichismo monumental en la ciudad.</p>
+            </div>
+            
+            <div class="item-evento">
+                <div class="contenedor-img">
+                    <img src="assets/espacial2.png" alt="Pelotero Interactivo">
+                </div>
+                <p class="descripcion-inter">Pelotero interactivo. Una estructura lúdica que invita al público a sumergirse físicamente en la experiencia cromática del evento.</p>
+            </div>
+
+            <div class="item-evento">
+                <div class="contenedor-img carrusel-evento">
+                    <button class="carrusel-btn ant">&#10094;</button> <div class="slides-contenedor">
+                        <img src="assets/espacial3a.png" class="slide activa" alt="Pabellón Nube">
+                        <img src="assets/espacial3b.png" class="slide" alt="Estaciones Interactivas">
+                        <img src="assets/espacial3c.png" class="slide" alt="Exhibición Escultural">
+                    </div>
+                    
+                    <button class="carrusel-btn sig">&#10095;</button> <div class="carrusel-puntos">
+                        <span class="punto activo" data-indice="0"></span>
+                        <span class="punto" data-indice="1"></span>
+                        <span class="punto" data-indice="2"></span>
+                    </div>
+                </div>
+                <p class="descripcion-inter">Pabellón inmersivo, tótems digitales interactivos y soportes esculturales que permiten a los usuarios dejar su huella en la exhibición.</p>
+            </div>
+
+            <div class="item-evento">
+                <div class="contenedor-img">
+                    <img src="assets/espacial4.png" alt="Proyección Nocturna">
+                </div>
+                <p class="descripcion-inter">Proyección nocturna. Al caer el sol, las mega-pantallas y el Obelisco iluminan la plaza, cambiando drásticamente la atmósfera.</p>
+            </div>
+
+            <div class="item-evento">
+                <div class="contenedor-img">
+                    <img src="assets/espacial5.png" alt="Stand Cubiertos">
+                </div>
+                <p class="descripcion-inter">Stand de los Cubiertos Orfeo a gran escala. Una reinterpretación monumental del diseño cotidiano convertido en punto de encuentro.</p>
+            </div>
+        </div>
+        
+
+        <div class="evento-mapa">
+            <img src="assets/mapa.png" alt="Mapa de la Intervención">
+            <p class="descripcion-inter">Mapa del circuito. Una vista panorámica con la distribución de todas las instalaciones alrededor de la Plaza de la República, guiando el recorrido de los caprichistas.</p>
+        </div>
+
     </div>
-    <div class="titulo-seccion" id="contacto">
-        <h1><span class="l1">c</span><span class="l2">o</span><span class="l3">n</span><span class="l4">t</span><span class="l5">a</span><span class="l6">c</span><span class="l7">t</span><span class="l8">o</span></h1>
+ 
+
+
+    <!-- BLOQUE CONTACTO -->
+   <div class="bloque-contacto">
+        
+        <div class="titulo-seccion" id="contacto">
+            <h1>
+                <span class="l1">c</span><span class="l2">o</span><span class="l3">n</span><span class="l4">t</span><span class="l5">a</span><span class="l6">c</span><span class="l7">t</span><span class="l8">o</span>
+            </h1>
+        </div>
+
+       
+        <div class="caja-verde-contacto">
+            <img src="assets/iso.png" alt="Logo Caprichismo" class="logo-contacto">
+            
+            <div class="redes-contacto">
+                <p><strong>Instagram</strong><br>@caprichismo</p>
+                <p><strong>Mail</strong><br>hola@caprichismo.com</p>
+                <p><strong>Substack</strong><br>@caprichismo</p>
+            </div>
+        </div>
+
+        <div class="contenedor-brief">
+            <img src="assets/fondobrief1.png" alt="Fondo Brief" class="brief-fondo">
+            <img src="assets/brief.png" alt="Brief" class="brief-frente">
+        </div>
+
+  
+
     </div>
-</div>
+
 
     <script src="app.js"></script>
+
+    <div class="bloque-volver">
+        <div class="boton-volver" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+            <span class="l1">v</span><span class="l2">o</span><span class="l3">l</span><span class="l4">v</span><span class="l5">e</span><span class="l6">r</span>&nbsp;
+            <span class="l7">a</span><span class="l8">l</span>&nbsp;
+            <span class="l1">l</span><span class="l2">i</span><span class="l3">e</span><span class="l4">n</span><span class="l5">z</span><span class="l6">o</span>
+        </div>
+    </div>
+    
 </body>
 </html>

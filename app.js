@@ -111,3 +111,37 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     animar();
 });
+
+// --- LÓGICA DEL CARRUSEL DE EVENTO ---
+    const slides = document.querySelectorAll('.slide');
+    const puntos = document.querySelectorAll('.punto');
+    const btnAnt = document.querySelector('.carrusel-btn.ant');
+    const btnSig = document.querySelector('.carrusel-btn.sig');
+    let slideActual = 0;
+
+    if (slides.length > 0) {
+        function cambiarSlide(indice) {
+            // Quitamos la clase activa a todos
+            slides.forEach(slide => slide.classList.remove('activa'));
+            puntos.forEach(punto => punto.classList.remove('activo'));
+            
+            // Calculamos el índice para que haga un "loop" infinito
+            slideActual = (indice + slides.length) % slides.length;
+            
+            // Ponemos la clase activa al que corresponde
+            slides[slideActual].classList.add('activa');
+            puntos[slideActual].classList.add('activo');
+        }
+
+        // Eventos de las flechas
+        btnAnt.addEventListener('click', () => cambiarSlide(slideActual - 1));
+        btnSig.addEventListener('click', () => cambiarSlide(slideActual + 1));
+
+        // Eventos de los puntitos de abajo
+        puntos.forEach(punto => {
+            punto.addEventListener('click', (e) => {
+                const indice = parseInt(e.target.getAttribute('data-indice'));
+                cambiarSlide(indice);
+            });
+        });
+    }

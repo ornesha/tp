@@ -66,7 +66,7 @@ body { margin: 0; background-color: white; }
 }
 .titulo-seccion {
     min-height: auto; /* Quitamos la pantalla completa (100vh) */
-    padding: 60px 0 40px 0; /* Espacio controlado: 60px arriba, 40px abajo */
+    padding: 40px 0 20px 0; /* Espacio controlado: 60px arriba, 40px abajo */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -161,3 +161,306 @@ body { margin: 0; background-color: white; }
     /* MARGIN: Crea una barrera invisible por fuera para empujar "evento" bien abajo */
     margin-bottom: 0px; 
 }
+
+.bloque-evento {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FF00FF; /* Aquí aplicamos el color magenta sólido */
+    padding-top: 20px; /* Aire arriba para que el color abrace el título */
+    padding-bottom: 120px; 
+}
+
+.descripcion-evento {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-align: center;
+    color: black;
+    max-width: 800px;
+    margin: -20px 40px 80px 40px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Imagen Principal (evento.png) */
+.evento-principal {
+    width: 100%;
+    max-width: 900px;
+    padding: 0 40px;
+    margin-bottom: 80px;
+    display: flex;
+    justify-content: center;
+}
+
+.evento-principal img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.15);
+}
+
+/* Grilla de imágenes secundarias */
+/* Grilla de imágenes secundarias (Bloques uniformes) */
+.galeria-evento-grilla {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 40px;
+    margin-bottom: 100px;
+}
+
+.item-evento {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.06);
+    height: 100%; /* Obliga a todos a medir lo mismo */
+}
+
+/* Forzamos a que todas las imágenes ocupen la misma caja perfecta */
+.contenedor-img {
+    width: 100%;
+    height: 250px; 
+    position: relative;
+    overflow: hidden;
+    background-color: #FF00FF; /* Por si tardan en cargar */
+}
+
+.contenedor-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain ; /* Corta los bordes sobrantes para que todas sean rectángulos perfectos */
+}
+
+.item-evento .descripcion-inter {
+    padding: 25px;
+    font-size: 1rem;
+    text-align: center;
+    margin: 0;
+    flex-grow: 1; /* Hace que el texto rellene el espacio y los bloques queden alineados abajo */
+}
+
+/* --- ESTILOS DEL CARRUSEL --- */
+.slides-contenedor {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.slide.activa {
+    opacity: 1;
+    z-index: 2;
+}
+
+/* Flechas */
+.carrusel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 18px;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.2s;
+}
+
+.carrusel-btn:hover { background: rgba(0, 0, 0, 0.8); }
+.carrusel-btn.ant { left: 0; border-radius: 0 5px 5px 0; }
+.carrusel-btn.sig { right: 0; border-radius: 5px 0 0 5px; }
+
+/* Puntos */
+.carrusel-puntos {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    z-index: 10;
+}
+
+.punto {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.5);
+}
+
+.punto.activo {
+    background: white;
+}
+
+/* Mapa final (Más grande y centrado) */
+/* Mapa final (Más grande y centrado) */
+.evento-mapa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 500px; 
+    padding: 0 40px;
+    margin: 0 auto; /* ¡Esta es la clave! Centra todo el bloque horizontalmente */
+}
+
+.evento-mapa img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0px 12px 30px rgba(0,0,0,0.15);
+}
+
+/* --- ESTILOS PARA LA SECCIÓN CONTACTO --- */
+
+.bloque-contacto {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #3C1250; /* Aseguramos el fondo blanco liso */
+    padding-top: 20px;
+    padding-bottom: 0px; /* Buen respiro al final de la página */
+}
+
+
+/* El cuadrado/rectángulo verde */
+.caja-verde-contacto {
+    background-color: #BBFF01; /* El verde lima de tu paleta inicial */
+    width: 100%;
+    max-width: 450px;
+    padding: 40px 40px;
+    border-radius: 16px; /* Bordes redondeados amigables */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 8px;
+    border: 2px solid black; /* Borde negro para mantener la estética pop/diseño */
+    box-shadow: 8px 8px 0px black; /* Sombra dura estilo brutalista/pop */
+}
+
+.logo-contacto {
+    width: 90px;
+    margin-bottom: 30px;
+}
+
+.redes-contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+    text-align: center;
+}
+
+.redes-contacto p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    color: black;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.redes-contacto strong {
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.img-cierre {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    padding: 0 40px;
+    border-radius: 12px;
+}
+
+.contenedor-brief {
+    position: relative;
+    width: 100%;       /* Ocupa todo el ancho disponible */
+    margin-bottom: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Quitamos el max-width: 1000px; para permitir que se expanda al borde */
+}
+
+.brief-fondo {
+    width: 100%;       /* Asegura que la imagen siempre mida el 100% del contenedor */
+    height: auto;      /* Mantiene la proporción original de la imagen */
+    display: block;
+    object-fit: cover; /* Asegura que la imagen cubra bien el espacio */
+}
+
+/* La imagen que flota (el brief) sigue centrada igual que antes */
+.brief-frente {
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    
+    /* Cambia este valor para achicar o agrandar la imagen */
+    width: 30%; 
+    
+    max-width: 90%;
+    height: auto;
+    z-index: 10;
+    filter: drop-shadow(0px 10px 20px rgba(0,0,0,0.15));
+}
+
+/* --- ESTILOS DEL BOTÓN VOLVER --- */
+.bloque-volver {
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3C1250; /* El color violeta oscuro que ya tenías de fondo */
+}
+
+
+.boton-volver {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    font-size: 2em; /* Tamaño grande y llamativo */
+    color: white; /* Texto en blanco como pediste */
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.boton-volver:hover {
+    transform: scale(1.1);
+}
+
+/* Aplicamos las fuentes de título al botón para que sea caprichista */
+.boton-volver .l1 { font-family: 'Anton'; }
+.boton-volver .l2 { font-family: 'Playfair Display'; font-style: italic; }
+.boton-volver .l3 { font-family: 'Bebas Neue'; }
+.boton-volver .l4 { font-family: 'Inter'; }
+.boton-volver .l5 { font-family: 'Courier Prime'; }
+.boton-volver .l6 { font-family: 'Lobster'; }
+.boton-volver .l7 { font-family: 'Anton'; }
+.boton-volver .l8 { font-family: 'Inter'; }

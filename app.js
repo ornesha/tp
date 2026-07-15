@@ -1,14 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
+    
+    // ==========================================
+    // 1. LÓGICA DEL LIENZO, CURSOR Y ESTAMPADOS
+    // ==========================================
     const archivos = ["barferroprusiato.png", "obelisco.png", "cenicero.png", "ceniceros.png", "circus.png", "cubiertos.png", "flecha.png", "florlampara.png", "lamparaatalaya.png", "oreja.png", "radio.png", "silla twist.png", "silla.png", "vaso.png", "vestido.png"];
     let indiceActual = 0;
     
     const cursorObjeto = document.createElement('div');
     cursorObjeto.id = 'cursor-objeto';
-    // Hacemos que la imagen aparezca desde el primer momento
     cursorObjeto.style.backgroundImage = `url('assets/${archivos[indiceActual]}')`;
     document.body.appendChild(cursorObjeto);
 
-    // RESTAURADO: Lógica de clic para cambiar el objeto
     window.addEventListener('mousedown', (e) => {
         if (!e.target.closest('.globo-conservador') && !e.target.closest('.cat')) {
             indiceActual = (indiceActual + 1) % archivos.length;
@@ -16,15 +18,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // RESTAURADO: Lógica de movimiento para crear los estampados
+    let estampados = [];
     window.addEventListener('mousemove', (e) => {
         cursorObjeto.style.left = (e.clientX - 100) + 'px';
         cursorObjeto.style.top = (e.clientY - 100) + 'px';
         
-        // Solo estampamos si estamos en la primera pantalla (para no manchar el fondo blanco de abajo)
         if (window.scrollY < window.innerHeight) {
             if (Math.random() > 0.9) {
-                // Sumamos window.scrollY para que el estampado caiga justo donde está el mouse, incluso si bajaste un poquito
                 estampados.push({ 
                     x: e.clientX, 
                     y: e.clientY + window.scrollY, 
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth; canvas.height = window.innerHeight;
     
-    let estampados = [], indiceColor = 0;
+    let indiceColor = 0;
     const pantallaInicial = document.querySelector('.pantalla-inicial');
     const paleta = ['#1200D4', '#531B5D', '#BBFF01', '#FF01E6'];
     
@@ -110,38 +110,59 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(animar);
     }
     animar();
-});
 
-// --- LÓGICA DEL CARRUSEL DE EVENTO ---
-    const slides = document.querySelectorAll('.slide');
-    const puntos = document.querySelectorAll('.punto');
-    const btnAnt = document.querySelector('.carrusel-btn.ant');
-    const btnSig = document.querySelector('.carrusel-btn.sig');
-    let slideActual = 0;
+    // ==========================================
+    // 2. SISTEMA UNIFICADO DE CARRUSELES
+    // ==========================================
+    
+    // Esta función crea un carrusel en cualquier parte de tu página
+    function crearCarrusel(selectorContenedor, selectorSlides, autoplayMs) {
+        const contenedor = document.querySelector(selectorContenedor);
+        if (!contenedor) return; // Si no existe el contenedor, no hace nada
 
-    if (slides.length > 0) {
-        function cambiarSlide(indice) {
-            // Quitamos la clase activa a todos
+        const slides = contenedor.querySelectorAll(selectorSlides);
+        const puntos = contenedor.querySelectorAll('.punto');
+        const btnAnt = contenedor.querySelector('.ant');
+        const btnSig = contenedor.querySelector('.sig');
+        let indiceActual = 0;
+
+        function cambiarSlide(nuevoIndice) {
+            // Limpiar activos
             slides.forEach(slide => slide.classList.remove('activa'));
             puntos.forEach(punto => punto.classList.remove('activo'));
             
-            // Calculamos el índice para que haga un "loop" infinito
-            slideActual = (indice + slides.length) % slides.length;
+            // Calcular nuevo índice en loop
+            indiceActual = (nuevoIndice + slides.length) % slides.length;
             
-            // Ponemos la clase activa al que corresponde
-            slides[slideActual].classList.add('activa');
-            puntos[slideActual].classList.add('activo');
+            // Asignar activos
+            slides[indiceActual].classList.add('activa');
+            if(puntos[indiceActual]) puntos[indiceActual].classList.add('activo');
         }
 
-        // Eventos de las flechas
-        btnAnt.addEventListener('click', () => cambiarSlide(slideActual - 1));
-        btnSig.addEventListener('click', () => cambiarSlide(slideActual + 1));
+        // Clics en las flechas
+        if (btnAnt) btnAnt.addEventListener('click', () => cambiarSlide(indiceActual - 1));
+        if (btnSig) btnSig.addEventListener('click', () => cambiarSlide(indiceActual + 1));
 
-        // Eventos de los puntitos de abajo
-        puntos.forEach(punto => {
-            punto.addEventListener('click', (e) => {
-                const indice = parseInt(e.target.getAttribute('data-indice'));
-                cambiarSlide(indice);
-            });
+        // Clics en los puntitos
+        puntos.forEach((punto, i) => {
+            punto.addEventListener('click', () => cambiarSlide(i));
         });
+
+        // Si se le pasa un tiempo (ej: 5000ms), se mueve solo
+        if (autoplayMs > 0) {
+            setInterval(() => cambiarSlide(indiceActual + 1), autoplayMs);
+        }
     }
+
+    // Activamos el Carrusel del Evento (Sin movimiento automático, pasamos 0)
+    crearCarrusel('.carrusel-evento', '.slide', 0);
+
+    // Activamos el Carrusel de Caprichismo/Afiches (Con movimiento automático cada 5 seg)
+    crearCarrusel('.carrusel-afiches', '.slide-afiche', 5000);
+// Activamos los dos nuevos mini-carruseles de Newsletters (Sin movimiento automático)
+
+    crearCarrusel('.carrusel-news1', '.slide-news', 0);
+    crearCarrusel('.carrusel-news2', '.slide-news', 0);
+
+
+});

@@ -321,7 +321,7 @@ body { margin: 0; background-color: white; }
     text-align: center;
     width: 100%;
     max-width: 500px; 
-    padding: 0 40px;
+    padding: 10px 40px;
     margin: 0 auto; /* ¡Esta es la clave! Centra todo el bloque horizontalmente */
 }
 
@@ -464,3 +464,95 @@ body { margin: 0; background-color: white; }
 .boton-volver .l6 { font-family: 'Lobster'; }
 .boton-volver .l7 { font-family: 'Anton'; }
 .boton-volver .l8 { font-family: 'Inter'; }
+
+/* --- ESTILOS SECCIÓN CAPRICHISMO (Limpio y unificado) --- */
+.bloque-caprichismo { 
+    width: 100%; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    padding: 50px 20px; 
+    background-color: #BBFF01; 
+}
+
+/* Carrusel de Afiches */
+.carrusel-afiches { 
+    width: 100%;
+    max-width: 400px; /* Ancho que tenías ajustado a tus afiches */
+    position: relative; 
+    margin: 40px auto; 
+    overflow: hidden;
+    border-radius: 12px;
+}
+.slide-afiche { display: none; }
+.slide-afiche.activa { display: block; }
+.slide-afiche img { 
+    width: 100%; 
+    display: block;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
+}
+
+/* Botones y puntos del carrusel */
+.btn-carrusel { 
+    position: absolute; 
+    top: 50%; 
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5); 
+    border: none; 
+    color: white; 
+    cursor: pointer; 
+    padding: 10px 15px; 
+    z-index: 10;
+    border-radius: 4px;
+}
+.btn-carrusel.ant { left: 10px; } 
+.btn-carrusel.sig { right: 10px; }
+.btn-carrusel:hover { background: rgba(0,0,0,0.8); }
+
+.puntos-afiche { text-align: center; margin-top: 15px; }
+
+/* --- Grilla Newsletters (Convertida a Carruseles) --- */
+.grilla-newsletter { 
+    display: flex; 
+    justify-content: center; 
+    flex-wrap: wrap; 
+    gap: 50px; /* Un poco más de espacio entre ambos bloques */
+    margin: 60px 0; 
+    width: 100%;
+}
+
+.grilla-newsletter .item {
+    position: relative; /* Clave para que las flechas se queden adentro de la imagen */
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.08);
+}
+
+/* Lógica de ocultar/mostrar las imágenes del newsletter */
+.slide-news { display: none; }
+.slide-news.activa { display: block; }
+.slide-news img { width: 100%; display: block; }
+.grilla-newsletter .item img:hover { transform: scale(1.03); }
+
+/* Prenda Destacada */
+.item-destacado { margin: 40px 0; padding: 0 20px; }
+.item-destacado img { width: 100%; max-width: 300px; border-radius: 12px; }
+
+/* Video 16:9 */
+.contenedor-video { 
+    width: 90%; 
+    max-width: 900px; 
+    margin: 60px auto 40px auto; 
+    aspect-ratio: 16 / 9; 
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 8px 25px rgba(0,0,0,0.15);
+}
+.contenedor-video video { 
+    width: 100%; 
+    height: 100%; 
+    background-color: black;
+    object-fit: cover;
+}

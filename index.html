@@ -9,8 +9,9 @@
 <body>
 
     <header class="nav-header">
-        <img src="assets/iso.png" class="logo-grande" id="logo-iso" onclick="document.getElementById('contacto').scrollIntoView({behavior: 'smooth'})" style="cursor: pointer;">
-    
+       <img src="assets/iso.png" class="logo-grande" id="logo-iso" onclick="document.getElementById('caprichismo').scrollIntoView({behavior: 'smooth'})" style="cursor: pointer;">
+
+
         
         <nav class="categorias-centro">
     <div class="cat" onclick="document.getElementById('objetos').scrollIntoView({behavior: 'smooth'})">
@@ -292,6 +293,62 @@
   
 
     </div>
+ 
+ <div class="bloque-caprichismo" id="caprichismo">
+    <div class="titulo-seccion">
+        <h1>
+            <span class="l1">c</span><span class="l2">a</span><span class="l3">p</span><span class="l4">r</span><span class="l5">i</span><span class="l6">c</span><span class="l7">h</span><span class="l8">i</span><span class="l9">s</span><span class="l10">m</span><span class="l11">o</span>
+        </h1>
+    </div>
+
+    <div class="carrusel-afiches">
+        <button class="btn-carrusel ant">&#10094;</button>
+        <div class="slide-afiche activa"><img src="assets/afiche1.png" alt="Afiche 1"></div>
+        <div class="slide-afiche"><img src="assets/afiche2.png" alt="Afiche 2"></div>
+        <div class="slide-afiche"><img src="assets/afiche3.png" alt="Afiche 3"></div>
+        <div class="slide-afiche"><img src="assets/afiche4.png" alt="Afiche 4"></div>
+        <button class="btn-carrusel sig">&#10095;</button>
+        <div class="puntos-afiche">
+            <span class="punto activo" data-index="0"></span>
+            <span class="punto" data-index="1"></span>
+            <span class="punto" data-index="2"></span>
+            <span class="punto" data-index="3"></span>
+        </div>
+    </div>
+
+  <div class="grilla-newsletter">
+            
+            <div class="item carrusel-news1">
+                <button class="btn-carrusel ant">&#10094;</button>
+                <div class="slide-news activa"><img src="assets/newsletter.png" alt="Newsletter 1"></div>
+                <div class="slide-news"><img src="assets/newsletter1.png" alt="Newsletter 1 B"></div>
+                <button class="btn-carrusel sig">&#10095;</button>
+                <div class="puntos-afiche">
+                    <span class="punto activo"></span>
+                    <span class="punto"></span>
+                </div>
+            </div>
+
+            <div class="item carrusel-news2">
+                <button class="btn-carrusel ant">&#10094;</button>
+                <div class="slide-news activa"><img src="assets/newsletter2.png" alt="Newsletter 2"></div>
+                <div class="slide-news"><img src="assets/newsletter3.png" alt="Newsletter 3"></div>
+                <button class="btn-carrusel sig">&#10095;</button>
+                <div class="puntos-afiche">
+                    <span class="punto activo"></span>
+                    <span class="punto"></span>
+                </div>
+            </div>
+
+        </div>
+
+    <div class="item-destacado"><img src="assets/prenda.png" alt="Indumentaria"></div>
+
+    <div class="contenedor-video">
+        <video src="assets/teaser.mp4" controls></video>
+    </div>
+</div>
+
 
 
     <script src="app.js"></script>

@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     let estampados = [];
-    window.addEventListener('pointermove', (e) => {
+    window.addEventListener('mousemove', (e) => {
         cursorObjeto.style.left = (e.clientX - 100) + 'px';
         cursorObjeto.style.top = (e.clientY - 100) + 'px';
         

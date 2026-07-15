@@ -556,3 +556,47 @@ body { margin: 0; background-color: white; }
     background-color: black;
     object-fit: cover;
 }
+
+/* =========================================
+   ESTILOS RESPONSIVE (CELULARES Y TABLETS)
+   ========================================= */
+@media (max-width: 850px) {
+    
+    /* 1. Menú y Navegación */
+    .nav-header { 
+        position: relative; /* Quita el menú fijo para que no tape todo en celu */
+        flex-direction: column; 
+        align-items: center; 
+        padding: 20px 10px; 
+    }
+    .logo-grande { 
+        margin-bottom: 20px; 
+    }
+    .categorias-centro { 
+        position: relative; 
+        left: 0; 
+        transform: none; 
+        flex-wrap: wrap; 
+        justify-content: center; 
+        gap: 20px; 
+    }
+
+    /* 2. Textos Gigantes */
+    #pregunta-central { font-size: 3.5rem; }
+    .titulo-seccion h1 { font-size: 3.5rem; }
+    .nombre-objeto { font-size: 1.8rem; }
+    .boton-volver { font-size: 1.5rem; }
+
+    /* 3. Ajuste de Grillas e Imágenes */
+    .galeria-objetos { grid-template-columns: 1fr; padding: 0 20px 50px 20px; }
+    .galeria-evento-grilla { grid-template-columns: 1fr; padding: 0 20px; }
+    
+    /* 4. Carruseles y Videos */
+    .carrusel-afiches { width: 100%; max-width: 90%; }
+    .contenedor-video { width: 100%; height: auto; margin: 40px 0; }
+    
+    /* 5. Contacto y Brief */
+    .caja-verde-contacto { padding: 30px 20px; width: 90%; }
+    .contenedor-brief { padding: 0 10px; }
+    .brief-frente { width: 50%; } /* Aumenta un poco el porcentaje en celu para que se lea */
+}

@@ -557,3 +557,14 @@ body { margin: 0; background-color: white; }
     object-fit: cover;
 }
 
+/* --- Estilos para los enlaces de contacto --- */
+.link-contacto {
+    color: black;
+    text-decoration: none; /* Le quita el subrayado feo por defecto */
+    transition: opacity 0.2s ease, text-decoration 0.2s;
+}
+
+.link-contacto:hover {
+    opacity: 0.6; /* Se aclara un poquito al pasar el mouse */
+    text-decoration: underline; /* Aparece el subrayado para invitar al clic */
+}

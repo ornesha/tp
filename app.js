@@ -157,14 +157,47 @@ document.addEventListener('DOMContentLoaded', () => {
     // Activamos el Carrusel del Evento (Sin movimiento automático, pasamos 0)
     crearCarrusel('.carrusel-evento', '.slide', 0);
 
-    // Activamos el Carrusel de Caprichismo/Afiches (Con movimiento automático cada 5 seg)
-    crearCarrusel('.carrusel-afiches', '.slide-afiche', 5000);
-// Activamos los dos nuevos mini-carruseles de Newsletters (Sin movimiento automático)
-
     crearCarrusel('.carrusel-news1', '.slide-news', 0);
     crearCarrusel('.carrusel-news2', '.slide-news', 0);
 
     // Activamos el carrusel del Mapa
     crearCarrusel('.carrusel-mapa', '.slide-mapa', 0);
+
+// ==========================================
+    // 3. LIGHTBOX PARA IMÁGENES (AGRANDAR)
+    // ==========================================
+    
+    const lightbox = document.getElementById('lightbox-modal');
+    const lightboxImg = document.getElementById('lightbox-img-src');
+    const btnCerrar = document.querySelector('.lightbox-cerrar');
+
+   
+// Seleccionamos TODAS las imágenes, incluyendo las nuevas grillas por si quedaron afuera del contenedor padre
+    const imagenesExpandibles = document.querySelectorAll('.bloque-evento img, .bloque-caprichismo img, .grilla-digitales img, .item-destacado img, .imagen-frames img');
+
+    // Le agregamos la función de clic a cada imagen
+    imagenesExpandibles.forEach(img => {
+        img.addEventListener('click', (e) => {
+            e.stopPropagation(); // Evita que se activen otras cosas de fondo
+            lightboxImg.src = img.src; // Le pasamos la ruta de la foto clickeada
+            lightbox.classList.add('activo'); // Mostramos la pantalla oscura
+        });
+    });
+
+    // Función para cerrar
+    function cerrarLightbox() {
+        lightbox.classList.remove('activo');
+    }
+
+    // Cerrar al tocar la X
+    btnCerrar.addEventListener('click', cerrarLightbox);
+
+    // Cerrar al tocar cualquier parte del fondo oscuro (excepto la foto en sí)
+    lightbox.addEventListener('click', (e) => {
+        if (e.target !== lightboxImg) {
+            cerrarLightbox();
+        }
+    });
+
 
 });

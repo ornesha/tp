@@ -164,5 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
     crearCarrusel('.carrusel-news1', '.slide-news', 0);
     crearCarrusel('.carrusel-news2', '.slide-news', 0);
 
+    // Activamos el carrusel del Mapa
+    crearCarrusel('.carrusel-mapa', '.slide-mapa', 0);
 
 });
